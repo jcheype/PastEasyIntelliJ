@@ -20,7 +20,7 @@
         <action id="pasteasy" class="com.jcheype.intellij.pasteasy.PastEasy" text="PastEasy"
                 description="Send entire file or selected text to PastEasy">
             <add-to-group group-id="EditorPopupMenu" anchor="last"/>
-            <keyboard-shortcut keymap="$default" first-keystroke="shift ctrl C"/>
+            <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt C"/>
         </action>
     </actions>
 
