@@ -53,7 +53,7 @@ public class PastEasy extends EditorAction {
 
             String selectedText = selectionModel.getSelectedText();
 
-            if (selectedText == null || selectedText.trim().length() > 0) {
+            if (selectedText == null || selectedText.trim().length() == 0) {
                 selectedText = editor.getDocument().getText();
             }
 
