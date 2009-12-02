@@ -1,0 +1,30 @@
+<idea-plugin version="2">
+    <name>Plugin name here</name>
+    <description>short description of the plugin</description>
+    <version>1.0</version>
+    <vendor>YourCompany</vendor>
+    <idea-version since-build="8000"/>
+
+    <application-components>
+        <component>
+            <implementation-class>com.jcheype.intellij.pasteasy.PastEasySettings</implementation-class>
+        </component>
+    </application-components>
+
+    <project-components>
+        <!-- Add your project components here -->
+    </project-components>
+
+    <actions>
+        <!-- Add your actions here -->
+        <action id="pasteasy" class="com.jcheype.intellij.pasteasy.PastEasy" text="PastEasy"
+                description="Send entire file or selected text to PastEasy">
+            <add-to-group group-id="EditorPopupMenu" anchor="last"/>
+            <keyboard-shortcut keymap="$default" first-keystroke="shift ctrl C"/>
+        </action>
+    </actions>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+    </extensions>
+</idea-plugin>
