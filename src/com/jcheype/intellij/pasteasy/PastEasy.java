@@ -52,9 +52,10 @@ public class PastEasy extends EditorAction {
             SelectionModel selectionModel = editor.getSelectionModel();
 
             String selectedText = selectionModel.getSelectedText();
-
+            int lineNumber = editor.getDocument().getLineNumber(selectionModel.getSelectionStart())+1;
             if (selectedText == null || selectedText.trim().length() == 0) {
                 selectedText = editor.getDocument().getText();
+                lineNumber = 1;
             }
 
             String language = "java";
@@ -64,7 +65,7 @@ public class PastEasy extends EditorAction {
 
                 if (project != null) {
 
-                    String result = pasteCode(language, selectedText, url);
+                    String result = pasteCode(language, selectedText, lineNumber, url);
                     setClipboardContents(result);
 
 
@@ -102,12 +103,13 @@ public class PastEasy extends EditorAction {
             });
         }
 
-        private String pasteCode(String language, String data, String urlString) {
+        private String pasteCode(String language, String data, int lineNumber, String urlString) {
             StringBuilder sb = new StringBuilder();
             try {
                 // Construct data
                 String buffer = URLEncoder.encode("language", "UTF-8") + "=" + URLEncoder.encode(language, "UTF-8");
                 buffer += "&" + URLEncoder.encode("data", "UTF-8") + "=" + URLEncoder.encode(data, "UTF-8");
+                buffer += "&" + URLEncoder.encode("lineNumber", "UTF-8") + "=" + URLEncoder.encode(""+lineNumber, "UTF-8");
 
                 // Send data
                 URL url = new URL(urlString + "/add.do");
